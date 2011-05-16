@@ -1,5 +1,5 @@
 from django.views import generic
-from rhinocloud.template import PDFTemplateResponse
+from rhinocloud.template.response import PDFTemplateResponse
 
 
 
