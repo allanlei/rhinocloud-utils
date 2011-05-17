@@ -1,0 +1,7 @@
+{% spaceless %}
+{% for node in nodes %}
+{% templatetag openvariable %}{{ node.name }}{% if node.statement %} {{ node.statement }}{% endif %}{% templatetag closevariable %}
+{{ node.body }}
+{% endfor %}
+{% templatetag openvariable %}/{{ nodes.0.name }}{% templatetag closevariable %}
+{% endspaceless %}
