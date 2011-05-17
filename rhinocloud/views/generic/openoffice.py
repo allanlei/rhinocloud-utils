@@ -6,11 +6,7 @@ from rhinocloud.template.response import OpenOfficeTemplateResponse
 
 
 class OpenOfficeDocumentView(generic.base.TemplateView):
-    pass
-
-class SpreadsheetView(OpenOfficeDocumentView):
-    response_class = OpenOfficeTemplateResponse
-    content_type = 'application/vnd.oasis.opendocument.spreadsheet'
+    content_type = None
     
     def get_content_type(self):
         if self.content_type:
@@ -18,6 +14,10 @@ class SpreadsheetView(OpenOfficeDocumentView):
         else:
             raise ImproperlyConfigured('Provide content_type or override get_content_type().')
         return content_type
+
+class SpreadsheetView(OpenOfficeDocumentView):
+    response_class = OpenOfficeTemplateResponse
+    content_type = 'application/vnd.oasis.opendocument.spreadsheet'
         
     def render_to_response(self, context, **kwargs):
         return super(SpreadsheetView, self).render_to_response(
