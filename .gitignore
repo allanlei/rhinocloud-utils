@@ -1,2 +1,4 @@
 *.pyc
 *.db
+dist/
+examples/rhinocloud
