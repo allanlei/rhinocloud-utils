@@ -17,7 +17,7 @@ class JQueryTemplateNode(template.Node):
             'nodes': self.nodes,
             'ender': self.ender
         }
-        return render_to_string('htmlutils/jquery/jqTemplate.html', context)
+        return render_to_string('jquery/jqTemplate.html', context)
 
 def jquerytemplate(parser, token, tokens, ender):
     nodes = []
@@ -57,7 +57,7 @@ class JqueryTemplateNode(template.Node):
         self.nodelist = nodelist
     def render(self, context):
         body = self.nodelist.render(context)
-        return render_to_string('htmlutils/jquery/jqTemplatingTemplate.html', {'body': body, 'template_name': self.template_name})
+        return render_to_string('jquery/jqTemplatingTemplate.html', {'body': body, 'template_name': self.template_name})
         
 @register.tag('jqTemplate')
 def jquery_template(parser, token):
