@@ -24,7 +24,7 @@ def image(src, caption=None, cls=None):
     return '<img src="%(src)s" title="%(title)s" class="%(cls)s" />' % {
     	'src': get_url(src, 'images'), 
     	'cls':cls, 
-    	'caption': title,
+    	'title': caption,
    	}
 
 @register.simple_tag
