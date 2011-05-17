@@ -87,6 +87,8 @@ SECRET_KEY = 'c4w$hvt%95-lzl1+oii_$mf7h(i1)9_d%c7@=l6+p=p5ebpp+h'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
+    'rhinocloud.template.loaders.openoffice.AppDirectoriesLoader',
+    'rhinocloud.template.loaders.openoffice.FileSystemLoader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
