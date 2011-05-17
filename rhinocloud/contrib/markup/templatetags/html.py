@@ -11,27 +11,27 @@ def get_url(path, folder=None, media_root=settings.MEDIA_URL):
 	return path
 
 
-@register.inclusion_tag('htmlutils/javascript.html')
+@register.simple_tag
 def javascript(src):
-	return {'src': get_url(src, 'js')}
-
-@register.inclusion_tag('htmlutils/css.html')
-def css(src, media='screen'):
-	return {'src': get_url(src, 'css'), 'media': media}
+    return '<script type="text/javascript" src="%(src)s"></script>' % {'src': get_url(src, 'js')}
     
-@register.inclusion_tag('htmlutils/image.html')
+@register.simple_tag
+def css(src, media='screen'):
+    return '<link href="%(src)s" rel="stylesheet" type="text/css" media="%(media)s" />' % {'src': get_url(src, 'css'), 'media': media}
+
+@register.simple_tag
 def image(src, caption=None, cls=None):
-    return {
+    return '<img src="%(src)s" title="%(title)s" class="%(cls)s" />' % {
     	'src': get_url(src, 'images'), 
     	'cls':cls, 
-    	'caption':caption
+    	'caption': title,
    	}
 
-@register.inclusion_tag('htmlutils/icon.html')
+@register.simple_tag
 def icon16(src):
-	return {
+    return '<img src="%(src)s" width="%(width)s" height="%(height)s" class="%(cls)s"/>' % {
 		'src': get_url(src, 'images'),
-		'class': 'icon16',
+		'cls': 'icon16',
 		'width': '16px',
 		'height': '16px',
 	}
