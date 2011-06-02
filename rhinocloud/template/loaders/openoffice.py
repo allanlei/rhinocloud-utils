@@ -18,7 +18,7 @@ class AppDirectoriesLoader(app_directories.Loader):
     def load_template_source(self, template_name, template_dirs=None):
         for filepath in self.get_template_sources(template_name, template_dirs):
             if zipfile.is_zipfile(filepath):
-            
+                pass
             
             try:
                 file = open(filepath)

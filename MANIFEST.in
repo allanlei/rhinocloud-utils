@@ -1,5 +1,7 @@
 include README
 include LICENSE
+include MANIFEST
+
 graft rhinocloud
 recursive-include rhinocloud *.py *.html
 recursive-include examples *.py *.html

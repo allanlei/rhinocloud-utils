@@ -1,5 +1,5 @@
 *.pyc
 *.db
 dist/
-*.tar.gz
 examples/rhinocloud
+rhinocloud_utils.egg-info/
