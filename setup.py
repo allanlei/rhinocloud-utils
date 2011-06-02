@@ -19,6 +19,12 @@ setup(
     keywords = 'utils django',
     url = 'https://github.com/allanlei/rhinocloud-utils',
     packages=find_packages_in('rhinocloud'),
+    package_dir={'rhinocloud.contrib.jquery': 'rhinocloud/contrib/jquery'},
+    package_data={'rhinocloud.contrib.jquery': ['templates/jquery/*.html']},
+    
+#    data_files=[
+#        ('rhinocloud/contrib/jquery', ['templates/jquery/jqTemplate.html', 'templates/jquery/jqTemplatingTemplate.html']),
+#    ],
     long_description=read('README'),
     install_requires=[
         'gdata==2.0.14',
