@@ -39,16 +39,9 @@ class WebkitPDFResponseMixin(object):
         
     def get_pdf_kwargs(self):
         kwargs = {
-            'margin-top': '0mm',
-            'margin-bottom': '0mm',
-            'margin-left': '0mm',
-            'margin-right': '0mm',
             'encoding': 'UTF-8',
-#            'ignore-load-errors': '',
-#            'minimum-font-size': '5',
-            'quiet': '',
-            'orientation': 'Portrait',
         }
+        
         if self.get_pdf_css_file():
             kwargs.update({
                 'user-style-sheet': self.get_pdf_css_file(),
