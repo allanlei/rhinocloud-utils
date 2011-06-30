@@ -45,7 +45,7 @@ class WebkitPDFResponseMixin(object):
             'margin-right': '0mm',
             'encoding': 'UTF-8',
 #            'ignore-load-errors': '',
-            'minimum-font-size': '5',
+#            'minimum-font-size': '5',
             'quiet': '',
             'orientation': 'Portrait',
         }
