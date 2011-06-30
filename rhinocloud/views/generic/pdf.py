@@ -40,6 +40,7 @@ class WebkitPDFResponseMixin(object):
     def get_pdf_kwargs(self):
         kwargs = {
             'encoding': 'UTF-8',
+            'quiet': '',
         }
         
         if self.get_pdf_css_file():

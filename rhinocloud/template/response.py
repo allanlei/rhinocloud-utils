@@ -28,7 +28,7 @@ class WebkitPDFTemplateResponse(TemplateResponse):
     @property
     def rendered_content(self):
         rendered_template = super(WebkitPDFTemplateResponse, self).rendered_content
-        p = Popen('wkhtmltopdf - - %s' % self.get_pdf_kwargs_string(), shell=True, stdin=PIPE, stdout=PIPE)
+        p = Popen('wkhtmltopdf %s - -' % self.get_pdf_kwargs_string(), shell=True, stdin=PIPE, stdout=PIPE)
         return p.communicate(rendered_template)[0]
         
 class OpenOfficeTemplateResponse(TemplateResponse):
