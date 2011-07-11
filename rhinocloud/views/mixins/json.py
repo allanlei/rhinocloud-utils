@@ -53,8 +53,10 @@ class JSONQuerysetResponseMixin(object):
             fields = ()
         return fields
         
-    def render_to_response(self, context, serializer_kwargs={}, **kwargs):
-        return self.get_json_response(self.convert_to_json(self.get_queryset(), **serializer_kwargs), **kwargs)
+    def render_to_response(self, queryset=None, serializer_kwargs={}, **kwargs):
+        if queryset is None:
+            queryset = self.get_queryset()
+        return self.get_json_response(self.convert_to_json(queryset, **serializer_kwargs), **kwargs)
 
     def get_json_response(self, content, **httpresponse_kwargs):
         return HttpResponse(content, content_type='application/json', **httpresponse_kwargs)
