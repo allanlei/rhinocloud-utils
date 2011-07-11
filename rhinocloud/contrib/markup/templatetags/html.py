@@ -21,10 +21,10 @@ def css(src, media='screen'):
 
 @register.simple_tag
 def image(src, caption=None, cls=None):
-    return '<img src="%(src)s" title="%(title)s" class="%(cls)s" />' % {
+    return '<img src="%(src)s" alt="$(title)s" %(cls)s %(title)s/>' % {
     	'src': get_url(src, 'images'), 
-    	'cls':cls, 
-    	'title': caption,
+    	'cls': 'class="%s"' % cls if cls else '', 
+    	'title': 'title="%s"' % caption if caption else '',
    	}
 
 @register.simple_tag
