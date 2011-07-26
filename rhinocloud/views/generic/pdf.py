@@ -16,7 +16,7 @@ class PDFResponseMixin(object):
         }
         
     def render_to_response(self, context, content_type='application/pdf', **kwargs):
-        return super(PDFView, self).render_to_response(
+        return super(PDFResponseMixin, self).render_to_response(
             context, 
             content_type=content_type, 
             pdf_kwargs=self.get_pdf_kwargs(), 
@@ -60,3 +60,6 @@ class WebkitPDFResponseMixin(object):
             content_type=content_type, 
             pdf_kwargs=self.get_pdf_kwargs(), 
             **kwargs)
+
+class WebkitPDFView(WebkitPDFResponseMixin, generic.base.TemplateView):
+    pass
