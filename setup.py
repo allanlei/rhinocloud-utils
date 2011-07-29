@@ -11,7 +11,7 @@ def find_packages_in(where, **kwargs):
 
 setup(
     name = 'rhinocloud-utils',
-    version = '0.1.7',
+    version = '0.1.8',
     author = 'Allan Lei',
     author_email = 'allanlei@helveticode.com',
     description = ('Django utility functions'),
