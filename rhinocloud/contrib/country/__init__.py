@@ -970,14 +970,14 @@ COUNTRIES = {
 	'AE': {
 		'name': "United Arab Emirates",
 		'currencies': [''],
-		'alternates': ['UAE'],
+		'alternates': ['UAE', 'u.a.e'],
 	},
 	'GB': {
 		'name': "United Kingdom",
 		'currencies': ['GBP'],
 		'alternates': [
 		    'England', 'UK', 'Scotland', 'London', 'Wales', 'Greater London', 'Caernarfon', 'Glamorgan', 'Essex', 'Cheshire', 'Bedford',
-		    'Shropshire', 'North Yorkshire', 'North Somerset',
+		    'Shropshire', 'North Yorkshire', 'North Somerset', 'Great Britain', 'United Kingdon',
 	    ],
 	},
 	'US': {
