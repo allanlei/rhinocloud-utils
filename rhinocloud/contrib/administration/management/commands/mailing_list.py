@@ -7,4 +7,7 @@ class Command(NoArgsCommand):
     )
     
     def handle_noargs(self, **options):
-        print ', '.join([user.email for user in User.objects.all()])
+        print ', '.join([user.email for user in self.get_users()])
+    
+    def get_users(self):
+        return User.objects.all()

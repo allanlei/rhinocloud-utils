@@ -1,0 +1,65 @@
+{% extends 'administration/generic.html' %}
+{% load html %}
+{% load jqTemplating %}
+
+{% block css %}
+    {% css 'datatables/datatables.css' %}
+    {% css 'datatables/colors.css' %}
+{% endblock %}
+
+{% block javascript %}
+    {% javascript 'jquery/jquery.dataTables.min.js' %}
+    {% javascript 'jquery/jquery.dataTables.extFn.js' %}
+    {% javascript 'jquery/jquery.tmpl.min.js' %}
+{% endblock %}
+
+{% block js %}
+    $("#page aside").removeClass("width2");
+    $("#page section.first").removeClass("width6").addClass("full");
+    
+    var dt = $("#page section.first table").dataTable({
+        "aoColumnDefs": [
+            {"aTargets": [0], "sWidth": "5%", "sClass": "center"},
+            {"aTargets": [2], "sWidth": "10%"},
+            {"aTargets": [3], "sWidth": "20%"}
+        ],
+        "aaSorting": [[3, "desc"]],
+        "bProcessing": true,
+        "bServerSide": true,
+        "sAjaxSource": String(window.location),
+        "fnServerData123123123": function(sSource, aoData, fnCallback){
+            $.getJSON(sSource, aoData, function(data, status, xhr){
+                fnCallback(data, status, xhr);
+            });
+        },
+        "fnRowCallback2121": function(nRow, aData){
+            var row = $(nRow);
+            var event = aData[2];
+            if(event.toLowerCase() == "joined"){
+                row.addClass("blue");
+            }else if(event.toLowerCase() == "logged in"){
+                row.addClass("green");
+            }
+            return nRow;
+        }
+    });
+{% endblock %}
+
+{% block content %}
+    <table class="dataTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date Joined</th>
+                <th>Last Login</th>
+                <th>Active</th>
+                <th>Staff</th>
+                <th>Super User</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+{% endblock %}

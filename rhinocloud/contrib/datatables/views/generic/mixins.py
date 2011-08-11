@@ -67,10 +67,10 @@ class ServerSideProcessingMixin(object):
         columns = self.get_columns()
         filters = []
         
-        for i in range(self.get_iDisplayLength()):
-            if self.get_bSearchable(i):
-                filters.append(self.get_column_filter(columns[i], self.get_sSearch(), self.get_bRegex()))
-                filters.append(self.get_column_filter(columns[i], self.get_sSearch(i), self.get_bRegex(i)))
+#        for i in range(self.get_iDisplayLength()):
+#            if self.get_bSearchable(i):
+#                filters.append(self.get_column_filter(columns[i], self.get_sSearch(), self.get_bRegex()))
+#                filters.append(self.get_column_filter(columns[i], self.get_sSearch(i), self.get_bRegex(i)))
         return filter(None, filters)
         
     def get_column_filter(self, column, sSearch, bRegex=False):
