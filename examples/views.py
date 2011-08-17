@@ -10,7 +10,7 @@ class OpenOfficeView(openoffice.SpreadsheetView):
     template_name = 'FundTemplate.ods'
     
     def get_context_data(self, **kwargs):
-        context = super(ExampleOpenOfficeView, self).get_context_data(**kwargs)
+        context = super(OpenOfficeView, self).get_context_data(**kwargs)
         context.update({
             'timestamp': datetime.datetime.now(),
         })
