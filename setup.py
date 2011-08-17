@@ -23,12 +23,12 @@ setup(
     package_data={'rhinocloud.contrib.jquery': ['templates/jquery/*.html']},
     long_description=read('README'),
     install_requires=[
-        'gdata==2.0.14',
-        'httplib2==0.6.0',      #gdata
-        
-        'pisa>=3.0.33',
-        'html5lib==0.90',       #pisa
-        'reportlab==2.5',       #pisa
+#        'gdata==2.0.14',
+#        'httplib2==0.6.0',      #gdata
+#        
+#        'pisa>=3.0.33',
+#        'html5lib==0.90',       #pisa
+#        'reportlab==2.5',       #pisa
         
         'wadofstuff-django-serializers>=1.1.0',
     ],
