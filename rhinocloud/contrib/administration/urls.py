@@ -15,7 +15,7 @@ download_patterns = ('',
 
 urlpatterns = patterns('',
     url(r'^$', views.ListView.as_view(), name='list'),
-    url(r'^mail_list.txt$', views.DownloadView.as_view(), name='mailing_list'),
+#    url(r'^mail_list.txt$', views.DownloadView.as_view(), name='mailing_list'),
 #    url(r'^create/$', views.CreateView.as_view(), name='create'),
 #    url(r'^(?P<pk>\d+)/', include(item_patterns)),
 )
