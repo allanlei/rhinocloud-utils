@@ -70,7 +70,8 @@ class ServerSideProcessingMixin(JSONQuerysetResponseMixin):
         query = Q()
         for i in range(len(columns)):
             if searchable[i] and search[i]:
-                query.add(Q(**{'%s__%s' % (columns[i], regex[i] and 'iregex' or 'icontains'): search[i]}), Q.OR)
+                for term in search[i].split(' '):
+                    query.add(Q(**{'%s__%s' % (columns[i], regex[i] and 'iregex' or 'icontains'): term}), Q.OR)
         return queryset.filter(query)
         
     def render_to_response(self, context, **kwargs):
