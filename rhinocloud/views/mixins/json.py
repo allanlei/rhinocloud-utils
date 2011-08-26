@@ -55,7 +55,10 @@ class JSONQuerysetResponseMixin(object):
         
     def render_to_response(self, queryset=None, serializer_kwargs={}, **kwargs):
         if queryset is None:
-            queryset = self.get_queryset()
+            if hasattr(self, 'object_list'):
+                queryset = self.object_list
+            else:
+                queryset = self.get_queryset()
         return self.get_json_response(self.convert_to_json(queryset, **serializer_kwargs), **kwargs)
 
     def get_json_response(self, content, **httpresponse_kwargs):
