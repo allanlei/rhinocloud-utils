@@ -2,6 +2,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.core.exceptions import ImproperlyConfigured
 from django.utils import simplejson as json
+from django.utils.encoding import smart_unicode
 
 
 class ServerSideProcessingMixin(object):
@@ -92,7 +93,7 @@ class ServerSideProcessingMixin(object):
         for i in range(self.get_iColumns()):
             if columns[i]:
                 column = columns[i].rsplit('__', 1)[0].split('__')[-1]
-                data.append(str(getattr(item, column)) if hasattr(item, column) else None)
+                data.append(smart_unicode(getattr(item, column)) if hasattr(item, column) else None)
             else:
                 data.append(None)
         return data
