@@ -3,10 +3,10 @@ from rhinocloud.utils import random_generator
 
 
 def generate_username_from_email(sender, instance, **kwargs):
-    if sender == User:
+    if isinstance(instance, User):
         email = instance.email
         username = random_generator(email[:25])
-        while User.objects.filter(username=username).exists():
+        while sender.objects.filter(username=username).exists():
             username = random_generator(username[:25])
         instance.username = username
             
